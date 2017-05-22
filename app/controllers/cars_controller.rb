@@ -17,16 +17,16 @@ class CarsController < ApplicationController
   def create
     @car = Car.new(car_params)
     if @car.save
-      redirect_to @car, notice: 'Car was successfully created.'
+      redirect_to @car, notice: 'New car was successfully created'
     else
-      render :new
+      render :new, notice: 'Could not create new car'
     end
   end
   def update
     if @car.update(car_params)
-      redirect_to @car, notice: 'car was successfully updated.'
+      redirect_to @car, notice: 'Car was successfully updated.'
     else
-      render :edit
+      render :edit, notice: 'Unable to update the car'
     end
   end
   def destroy
