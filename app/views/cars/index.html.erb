@@ -10,13 +10,13 @@
   </thead>
 
   <tbody>
-    <% @cars.each do |car| %>
+    <% @cars.each do |vehicle| %>
       <tr>
-        <td><%= car.description %></td>
-        <td><%= car.question %></td>
-        <td><%= link_to 'Show', car %></td>
-        <td><%= link_to 'Edit', edit_car_path(car) %></td>
-        <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= vehicle.name %></td>
+        <td><%= vehicle.description %></td>
+        <td><%= link_to 'Show', vehicle %></td>
+        <td><%= link_to 'Edit', edit_car_path(vehicle) %></td>
+        <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
