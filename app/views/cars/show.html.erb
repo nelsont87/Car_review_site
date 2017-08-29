@@ -1,9 +1,20 @@
+<h3><%=@car.name%></h3>
+
 <p>
   <strong> Description: </strong>
   <%= @car.description %>
-
 </p>
 
-<%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %> |
-<%= link_to 'Destroy', @car, method: :delete, data: { confirm: 'Are you sure?' } %>
+<p>
+  <strong> Reviews: </strong>
+  <% @car.reviews.each do |vehicle| %>
+    <%= vehicle.description %>
+  <% end %>
+</p>
+
+<%= link_to 'New Review', new_review_path(car_id: @car.id) %> |
+<%= link_to 'Back', cars_path %>
+<% if @user == current_user %>
+  | <%= link_to 'Edit', edit_car_path(@car) %> |
+  <%= link_to 'Destroy', @car, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
